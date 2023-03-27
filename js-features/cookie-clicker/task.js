@@ -20,8 +20,7 @@ function clickTime(firstTime) {
     let newDate = new Date();
     console.log(firstTime.getMilliseconds(), newDate.getMilliseconds());
     speed.textContent = ((1 / (firstTime.getMilliseconds() - newDate.getMilliseconds())) * 1000).toFixed(2);
-    firstTime = new Date();
+    firstTime = newDate;
     return firstTime;
-    
 }
 
