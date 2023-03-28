@@ -8,10 +8,10 @@ let linksModal = document.getElementsByClassName("show-success");
 
 
  Array.from(linksModal).forEach(item => item.onclick = function () {
+    modal.className = "modal";
     modalSmall.className = "modal modal_active";   
 });
 
 Array.from(closeModal).forEach(item => item.onclick = function () {
     modalSmall.className = "modal";    
-    modal.className = "modal";   
 });
