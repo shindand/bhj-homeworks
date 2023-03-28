@@ -13,5 +13,6 @@ let linksModal = document.getElementsByClassName("show-success");
 });
 
 Array.from(closeModal).forEach(item => item.onclick = function () {
+    modal.className = "modal";
     modalSmall.className = "modal";    
 });
