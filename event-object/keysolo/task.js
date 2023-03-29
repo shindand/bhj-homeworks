@@ -16,7 +16,37 @@ class Game {
     this.lossElement.textContent = 0;
   }
 
+  
   registerEvents() {
+
+    let i = 77;
+    let t = this.currentSymbol.textContent;
+  
+  console.log(this.currentSymbol.textContent);
+
+    function letter(event) {
+      let t2 = event.key;
+      
+      if (t == t2) {
+        console.log(t);
+        console.log("дя");
+        return i + 1;
+   }
+   else {
+    this.fail;
+     console.log("хрень"); 
+   }
+    }
+    document.addEventListener('keydown', letter);
+
+console.log(i);
+    if (i != 77) {
+      t = this.success(this.currentSymbol.textContent); 
+     console.log(t);
+     console.log(i);
+  i++;
+    }
+
     /*
       TODO:
       Написать обработчик события, который откликается
@@ -26,6 +56,7 @@ class Game {
       DOM-элемент текущего символа находится в свойстве this.currentSymbol.
      */
   }
+  
 
   success() {
     if(this.currentSymbol.classList.contains("symbol_current")) this.currentSymbol.classList.remove("symbol_current");
