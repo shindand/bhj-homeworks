@@ -18,34 +18,32 @@ class Game {
 
   
   registerEvents() {
-
-    let i = 77;
-    let t = this.currentSymbol.textContent;
   
-  console.log(this.currentSymbol.textContent);
+ let t = this.currentSymbol.textContent;
+ 
+  let good = () => {
+    this.success();
+		t = this.currentSymbol.textContent;
+	}
+  let bed = () => {
+    this.fail();
+	}
 
+    document.addEventListener('keydown', letter);
     function letter(event) {
       let t2 = event.key;
-      
-      if (t == t2) {
-        console.log(t);
-        console.log("дя");
-        return i + 1;
+      if (t.toLowerCase() == t2.toLowerCase()) {
+        good();
    }
    else {
-    this.fail;
-     console.log("хрень"); 
+    bed();
+    console.log("неть");
+     console.log(t); 
    }
-    }
-    document.addEventListener('keydown', letter);
+  }
+  
+//proba();
 
-console.log(i);
-    if (i != 77) {
-      t = this.success(this.currentSymbol.textContent); 
-     console.log(t);
-     console.log(i);
-  i++;
-    }
 
     /*
       TODO:
