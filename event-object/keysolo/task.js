@@ -14,35 +14,26 @@ class Game {
     this.setNewWord();
     this.winsElement.textContent = 0;
     this.lossElement.textContent = 0;
+
   }
 
   
   registerEvents() {
-  
- let t = this.currentSymbol.textContent;
- 
-  let good = () => {
-    this.success();
-		t = this.currentSymbol.textContent;
-	}
-  let bed = () => {
-    this.fail();
-	}
 
-    document.addEventListener('keydown', letter);
-    function letter(event) {
-      let t2 = event.key;
-      if (t.toLowerCase() == t2.toLowerCase()) {
-        good();
+
+    let letter = (event) => {
+      let currentLetter = event.key;
+      if (this.currentSymbol.textContent.toLowerCase() == currentLetter.toLowerCase()) {
+        this.success();
    }
    else {
-    bed();
-    console.log("неть");
-     console.log(t); 
+    event.preventDefault();
+    this.fail();
    }
   }
-  
-//proba();
+
+  document.addEventListener('keydown', letter);
+
 
 
     /*
@@ -78,6 +69,7 @@ class Game {
       alert('Вы проиграли!');
       this.reset();
     }
+    
     this.setNewWord();
   }
 
@@ -114,7 +106,6 @@ class Game {
       )
       .join('');
     this.wordElement.innerHTML = html;
-
     this.currentSymbol = this.wordElement.querySelector('.symbol_current');
   }
 }
