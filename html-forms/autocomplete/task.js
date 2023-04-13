@@ -67,6 +67,7 @@ class Autocomplete {
     this.list.innerHTML = html.join('');
   }
 
+  
   getMatches( text ) {
     /*
       TODO: этот метод нужно дописать
@@ -81,12 +82,60 @@ class Autocomplete {
         value: 'Содержимое атрибута value'
       }
     */
-    return [
-      {
-        text: 'Чубакка',
-        value: '1'
-      }
-    ];
+
+
+   let array = [];
+   let obj = {};
+  let i = 0;
+
+   const autocompleteInput = document.querySelector('.autocomplete__input');
+
+   let newArray = Array.from(autocompleteInput).filter(item => {
+    if (item.innerText.includes(text)) {
+      console.log(item.innerText);
+      return item.innerText;
+    }
+  });
+
+  console.log(newArray[0],newArray[1],newArray[2]);
+
+
+   Array.from(autocompleteInput).forEach(item => {
+
+    if (item.textContent.includes(text)) {
+      obj.text = item.textContent;
+      obj.value = item.index;
+      array.push(obj);
+      i++;
+    }
+      
+   
+    
+    
+ //    if (item.textContent.match(text) != null) {
+ //     let regs = "text\\g";
+ //     obj.text = item.textContent.match(text).input;
+ //     obj.value = item.value;  
+//      array.push(obj); 
+   
+   //   console.log(array);
+ //   }
+
+  //  if (item.textContent.input.includes(text)) {console.log('777')};
+ //   console.log(item.textContent.includes(text));
+
+ 
+});
+      //console.log(array);
+//console.log(i);
+  //    console.log(array);
+   
+  return array;
+
+ 
+ 
+
+
   }
 }
 
