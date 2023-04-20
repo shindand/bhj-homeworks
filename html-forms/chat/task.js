@@ -28,7 +28,6 @@ function time() {
 const inputUser = document.getElementById('chat-widget__input');
 let enter = false;
 
-//function interval() {
     let intervalId = () => setTimeout(function(){
         messages.innerHTML += `
         <div class="message">
@@ -39,12 +38,8 @@ let enter = false;
        </div>
     `;
     }, 5000);
-//}
 
 inputUser.addEventListener('keydown', function(e){
-
-   // interval();
-  // intervalId();
    
 
     if (e.keyCode === 13 && this.value != '') {
