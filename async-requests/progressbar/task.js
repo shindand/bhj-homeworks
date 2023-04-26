@@ -1,24 +1,28 @@
 const progress = document.getElementById( 'progress' );
 const sendFile = document.getElementById('send');
 const sendFileForm = document.forms.form;
-progress.value = 0.3;
+//progress.value = 0.3;
 
-let xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://students.netoservices.ru/nestjs-backend/upload');
-xhr.send();
+sendFile.onclick = function(evt) {
+  evt.preventDefault();
+  const fileSend = this.files;
 
-xhr.onload = function() {
-    console.log(xhr.status);
-    console.log(xhr.response);
-}
+  let xhr = new XMLHttpRequest();
 
 xhr.onprogress = function(event) {
-    console.log(event.total);
-    console.log(event.loaded);
-  }
+  console.log(event.total);
+  console.log(event.loaded);
+  progress.value = ((event.loaded * 100) / event.total) / 100;
+  console.log(progress.value);
+}
 
 
-//  sendFile.onclick = function(evt) {
-//    evt.preventDefault();
-//  }
+xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/upload');
+xhr.send(fileSend);
+
+
+}
+
+  // sendFile.addEventListener('change', function(e) {  // evt.preventDefault();    }
+  
 
