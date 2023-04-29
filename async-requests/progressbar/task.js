@@ -5,24 +5,28 @@ const sendFileForm = document.forms.form;
 
 sendFile.onclick = function(evt) {
   evt.preventDefault();
-  const fileSend = this.files;
 
+  let formData = new FormData(form);
   let xhr = new XMLHttpRequest();
-
-xhr.onprogress = function(event) {
-  console.log(event.total);
-  console.log(event.loaded);
-  progress.value = ((event.loaded * 100) / event.total) / 100;
-  console.log(progress.value);
+  
+  xhr.upload.onprogress = function(event) {
+  progress.value = event.loaded / event.total;
 }
 
+xhr.onloadend = function() {
+  if (xhr.status == 200) {
+    console.log("Успех");
+  } else {
+    console.log("Ошибка " + this.status);
+  }
+};
 
 xhr.open('POST', 'https://students.netoservices.ru/nestjs-backend/upload');
-xhr.send(fileSend);
+xhr.send(formData);
 
 
 }
 
-  // sendFile.addEventListener('change', function(e) {  // evt.preventDefault();    }
+
   
 
