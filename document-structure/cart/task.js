@@ -14,7 +14,7 @@ Array.from(product).forEach((item, index) =>
     productQuantity[index].innerHTML = `
       <div class="product__quantity-value">
       ${++productQuantity[index].textContent}
-      </div>
+      </div> 
    `;
 });
 
@@ -42,7 +42,7 @@ Array.from(product).forEach((item, index) =>
        `
     } 
     else {
-     productCount[prodId].textContent = productQuantity[index].textContent; 
+     productCount[prodId].textContent = Number(productCount[prodId].textContent) + Number(productQuantity[index].textContent); 
      }
 });
 
